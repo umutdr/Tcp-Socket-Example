@@ -82,14 +82,14 @@ namespace TcpSocket1
         {
             static void SendInformationMessage(double threadSleepTimeInSeconds, int connectedCount = 0, int disconnectedCount = 0)
             {
-                Console.WriteLine($"TcpClients Checked at {DateTime.UtcNow:u}\nStill Connected: {connectedCount} | Disconnected Now: {disconnectedCount} | Next Sleep Time (seconds): {threadSleepTimeInSeconds}");
+                Console.WriteLine($"TcpClients Checked at {DateTime.UtcNow:u}\nStill Connected: {connectedCount} | Disconnected Now: {disconnectedCount} | Next Sleep Duration: {threadSleepTimeInSeconds} seconds");
             }
 
             Console.WriteLine("TcpClients Control Thread started");
             int disconnectedTcpClientsCount = 0;
-            double threadSleepTimeInSecondsDefault = 3;
+            double threadSleepTimeInSecondsDefault = 5;
             double threadSleepTimeInSecondsMax = threadSleepTimeInSecondsDefault * 2;
-            double threadSleepTimeIncreasePercentage = 0.1;
+            double threadSleepTimeIncreasePercentage = 0.25; // 1.0 = %100, 0.5 = %50, 0.0 = %0
             double threadSleepTimeInSeconds = threadSleepTimeInSecondsDefault;
             while (true)
             {
